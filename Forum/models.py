@@ -16,3 +16,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class User(models.Model):
+    userid = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    username = models.CharField(max_length=200)
+    password= models.TextField()
+    author = models.CharField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
